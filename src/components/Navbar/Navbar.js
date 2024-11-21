@@ -21,6 +21,7 @@ export default function Navbar() {
         <div class="navbar-links">
           <a href="/post" class="navbar-link" data-link>
             <i class="fas fa-plus-circle"></i> Créez
+          </a>
           <a href="/trips" class="navbar-link" data-link>
             <i class="fas fa-heart"></i> Favories
           </a>
@@ -28,8 +29,8 @@ export default function Navbar() {
             <i class="fas fa-bell"></i> Notifications
           </a>
         </div>
-        <button class="btn btn-signin" id="signin-button">Sign In</button>
-        <button class="btn btn-register" id="register-button">Register</button>
+        <a href="/signin" class="btn btn-signin" data-link>Sign In</a>
+        <a href="/register" class="btn btn-register" data-link>Register</a>
       </div>
     </nav>
   `;
