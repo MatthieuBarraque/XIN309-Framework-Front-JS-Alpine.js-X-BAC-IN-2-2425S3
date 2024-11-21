@@ -23,10 +23,6 @@ yarn-error.log*
 temp.json
 
 # Build output
-*.map
-*.css
-*.js
-
 # Editor settings
 .vscode/
 .idea/
