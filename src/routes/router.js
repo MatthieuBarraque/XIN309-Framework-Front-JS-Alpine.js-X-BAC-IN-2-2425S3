@@ -3,6 +3,8 @@ import About from '../pages/About.js';
 import Quiz from '../pages/Quiz.js';
 import Leaderboard from '../pages/Leaderboard.js';
 import NotFound from '../components/Utils/NotFound.js';
+import Signin from '../pages/PageAuth/Signin.js';
+import Register from '../pages/PageAuth/Register.js';
 
 export function setupRouter() {
   // Define routes
@@ -14,6 +16,8 @@ export function setupRouter() {
     '/post': () => '<h1>Post Page</h1>',
     '/alerts': () => '<h1>Alerts Page</h1>',
     '/trips': () => '<h1>Trips Page</h1>',
+    '/signin': Signin,
+    '/register': Register,
   };
 
   const root = document.getElementById('app');

@@ -79,13 +79,14 @@
     font-size: 1rem;
     background-color: #551A8B;
     color: #fff;
-    border: none;
+    border-radius: 8px;
+    border: 2px solid #fff;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
+}
   
   .carousel-button:hover {
-    background-color: #c6a9dd;
+    background-color: #8c00ff;
   }
   
   .arrow {
