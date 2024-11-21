@@ -1,0 +1,36 @@
+# Node.js specific
+node_modules/
+dist/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+*.pid
+*.pid.lock
+
+# Parcel cache
+.parcel-cache/
+
+# MacOS
+.DS_Store
+
+# Temporary files
+temp.json
+
+# Build output
+*.map
+*.css
+*.js
+
+# Editor settings
+.vscode/
+.idea/
+*.swp
+
+# System files
+Thumbs.db
