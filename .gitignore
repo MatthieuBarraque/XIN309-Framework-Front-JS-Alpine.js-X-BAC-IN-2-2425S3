@@ -2,6 +2,8 @@
 node_modules/
 dist/
 
+.env
+
 # Logs
 logs
 *.log
@@ -23,6 +25,10 @@ yarn-error.log*
 temp.json
 
 # Build output
+*.map
+*.css
+*.js
+
 # Editor settings
 .vscode/
 .idea/
