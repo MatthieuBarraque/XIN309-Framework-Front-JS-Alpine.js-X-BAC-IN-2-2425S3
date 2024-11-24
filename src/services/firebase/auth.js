@@ -2,8 +2,8 @@ import {
     createUserWithEmailAndPassword,
     sendEmailVerification,
     signInWithEmailAndPassword,
-    onAuthStateChanged,
-    signOut,
+    onAuthStateChanged as firebaseOnAuthStateChanged,
+    signOut as firebaseSignOut,
   } from 'firebase/auth';
   import { auth } from './firebaseConfig';
   
@@ -46,18 +46,18 @@ import {
     }, 2000); // Check every 2 seconds
   };
   
-/**
- * Connexion d'un utilisateur avec Firebase Authentication.
- * @param {string} email - Adresse e-mail de l'utilisateur.
- * @param {string} password - Mot de passe de l'utilisateur.
- */
-export const loginUser = async (email, password) => {
+  /**
+   * Connects a user using Firebase Authentication.
+   * @param {string} email - User's email address.
+   * @param {string} password - User's password.
+   */
+  export const loginUser = async (email, password) => {
     try {
-      // Authentification Firebase
+      // Firebase Authentication
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
   
-      // Vérifiez si l'utilisateur a validé son email
+      // Check if the user's email is verified
       if (!user.emailVerified) {
         throw new Error('Veuillez vérifier votre adresse e-mail avant de vous connecter.');
       }
@@ -66,7 +66,7 @@ export const loginUser = async (email, password) => {
       return user;
     } catch (error) {
       console.error('Erreur lors de la connexion :', error.message);
-      throw error; // Relancer l'erreur pour la gestion par l'interface utilisateur
+      throw error; // Re-throw the error for UI handling
     }
   };
   
@@ -76,7 +76,7 @@ export const loginUser = async (email, password) => {
    * @param {Function} navigate - Function to navigate to the sign-in page.
    */
   export const protectRoute = (navigate) => {
-    onAuthStateChanged(auth, (user) => {
+    firebaseOnAuthStateChanged(auth, (user) => {
       if (!user) {
         navigate('/signin');
       }
@@ -88,11 +88,32 @@ export const loginUser = async (email, password) => {
    */
   export const logoutUser = async () => {
     try {
-      await signOut(auth);
+      await firebaseSignOut(auth);
       console.log('Déconnexion réussie.');
+      window.location.href = '/signin'; // Redirect to the sign-in page
     } catch (error) {
       console.error('Erreur lors de la déconnexion :', error.message);
       throw error;
     }
   };
+  
+  /**
+   * Monitors the authentication state.
+   * @param {Function} onAuthenticated - Callback when the user is authenticated.
+   * @param {Function} onUnauthenticated - Callback when the user is not authenticated.
+   */
+  export const monitorAuthState = (onAuthenticated, onUnauthenticated) => {
+    firebaseOnAuthStateChanged(auth, (user) => {
+      if (user) {
+        console.log('Utilisateur connecté :', user.email);
+        onAuthenticated(user);
+      } else {
+        console.log('Aucun utilisateur connecté.');
+        onUnauthenticated();
+      }
+    });
+  };
+  
+  console.log('Auth module loaded');
+  export { firebaseOnAuthStateChanged as onAuthStateChanged, firebaseSignOut as signOut };
   
