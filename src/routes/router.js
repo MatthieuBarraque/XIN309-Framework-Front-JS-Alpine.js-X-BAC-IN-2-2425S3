@@ -58,7 +58,7 @@ export function setupRouter() {
       root.innerHTML = '<h1>Une erreur est survenue lors du chargement.</h1>';
     }
   }
-
+  //ok
   // Listen for browser navigation (back/forward)
   window.addEventListener('popstate', () => render(window.location.pathname));
 
