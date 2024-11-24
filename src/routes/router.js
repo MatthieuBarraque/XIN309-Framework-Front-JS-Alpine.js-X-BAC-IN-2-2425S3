@@ -5,19 +5,17 @@ import Leaderboard from '../pages/Leaderboard.js';
 import NotFound from '../components/Utils/NotFound.js';
 import Signin from '../pages/PageAuth/Signin.js';
 import Register from '../pages/PageAuth/Register.js';
+import Profile from '../pages/Profile/Profile.js';
 
 export function setupRouter() {
-  // Define routes
   const routes = {
     '/': Home,
     '/about': About,
     '/quiz': Quiz,
     '/leaderboard': Leaderboard,
-    '/post': () => '<h1>Post Page</h1>',
-    '/alerts': () => '<h1>Alerts Page</h1>',
-    '/trips': () => '<h1>Trips Page</h1>',
     '/signin': Signin,
     '/register': Register,
+    '/profile': Profile,
   };
 
   const root = document.getElementById('app');

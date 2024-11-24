@@ -29,8 +29,8 @@ export default function Navbar() {
             <i class="fas fa-bell"></i> Notifications
           </a>
         </div>
-        <a href="/signin" class="btn btn-signin" data-link>Sign In</a>
-        <a href="/register" class="btn btn-register" data-link>Register</a>
+        <a href="/signin" class="btn btn-signin" data-link>Connexion</a>
+        <a href="/register" class="btn btn-register" data-link>Inscription</a>
       </div>
     </nav>
   `;
