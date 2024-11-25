@@ -1,5 +1,5 @@
 import './carousel.css';
-import testImage from './test.png';
+import testImage from '../../../assets/image/test.png';
 
 const slides = [
     {

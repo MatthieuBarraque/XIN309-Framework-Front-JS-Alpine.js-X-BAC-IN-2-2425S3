@@ -1,14 +1,15 @@
 import Navbar from '../components/Navbar/Navbar.js';
 import Footer from '../components/Footer/Footer.js';
 import createCarousel from '../components/Home/Carousel/carousel.js';
+import FeatureSection from '../components/Home/FeatureSection/FeatureSection.js';
 
 export default function Home() {
+  const featureSection = new FeatureSection();
   const html = `
     ${Navbar()}
     <div id="carousel"></div>
     <main>
-      <h1>Welcome to the Home Page</h1>
-      <p>This is the main content of the homepage.</p>
+      ${featureSection.render()}
     </main>
     ${Footer()}
   `;

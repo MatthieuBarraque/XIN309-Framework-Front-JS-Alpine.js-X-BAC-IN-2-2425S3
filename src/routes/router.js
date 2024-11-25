@@ -1,23 +1,30 @@
-// router.js
-
 import Home from '../pages/Home.js';
 import About from '../pages/About.js';
 import Quiz from '../pages/Quiz.js';
-import Leaderboard from '../pages/Leaderboard.js';
+import LeaderboardPage, {
+  setupLeaderboardPage,
+} from '../pages/Leaderboard.js';
 import NotFound from '../components/Utils/NotFound.js';
-import Signin, { setupSigninFormEvents } from '../pages/PageAuth/Signin.js';
-import Register, { setupRegisterEvents } from '../pages/PageAuth/Register.js';
-import Profile, { setupProfileEvents } from '../pages/Profile/Profile.js';
+import Signin, {
+  setupSigninFormEvents,
+} from '../pages/PageAuth/Signin.js';
+import Register, {
+  setupRegisterEvents,
+} from '../pages/PageAuth/Register.js';
+import Profile, {
+  setupProfileEvents,
+} from '../pages/Profile/Profile.js';
 import { onAuthStateChanged } from '../services/firebase/auth';
 import { auth } from '../services/firebase/firebaseConfig';
-import { setupNavbarEvents } from '../components/Navbar/Navbar.js'; // Assurez-vous d'importer setupNavbarEvents
+import { setupNavbarEvents } from '../components/Navbar/Navbar.js';
+import Alpine from 'alpinejs';
 
 export function setupRouter() {
   const routes = {
     '/': Home,
     '/about': About,
     '/quiz': Quiz,
-    '/leaderboard': Leaderboard,
+    '/leaderboard': LeaderboardPage,
     '/signin': Signin,
     '/register': Register,
     '/profile': Profile,
@@ -39,6 +46,8 @@ export function setupRouter() {
 
     root.innerHTML = typeof page === 'function' ? page() : page;
 
+    Alpine.initTree(root);
+
     setupNavbarEvents();
 
     if (path === '/register') {
@@ -49,6 +58,9 @@ export function setupRouter() {
     }
     if (path === '/signin') {
       setupSigninFormEvents();
+    }
+    if (path === '/leaderboard') {
+      setupLeaderboardPage();
     }
   }
 

@@ -20,13 +20,13 @@ export default function Navbar() {
       </div>
       <div class="navbar-buttons">
         <div class="navbar-links">
-          <a href="/post" class="navbar-link" data-link>
+          <a class="navbar-link">
             <i class="fas fa-plus-circle"></i> Créez
           </a>
-          <a href="/trips" class="navbar-link" data-link>
+          <a class="navbar-link">
             <i class="fas fa-heart"></i> Favoris
           </a>
-          <a href="/alerts" class="navbar-link" data-link>
+          <a class="navbar-link">
             <i class="fas fa-bell"></i> Notifications
           </a>
         </div>
