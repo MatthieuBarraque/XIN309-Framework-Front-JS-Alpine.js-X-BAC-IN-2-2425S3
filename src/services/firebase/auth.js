@@ -1,12 +1,12 @@
 import {
-    createUserWithEmailAndPassword,
-    sendEmailVerification,
-    signInWithEmailAndPassword,
-    onAuthStateChanged as firebaseOnAuthStateChanged,
-    signOut as firebaseSignOut,
-  } from 'firebase/auth';
-  import { auth } from './firebaseConfig';
-  
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+  signInWithEmailAndPassword,
+  onAuthStateChanged as firebaseOnAuthStateChanged,
+  signOut as firebaseSignOut,
+} from 'firebase/auth';
+import { auth } from './firebaseConfig';
+
   /**
    * @param {string} email - The user's email address.
    * @param {string} password - The user's password.
@@ -103,5 +103,8 @@ import {
   };
   
   console.log('Auth module loaded');
-  export { firebaseOnAuthStateChanged as onAuthStateChanged, firebaseSignOut as signOut };
-  
+  export {
+    auth,
+    firebaseOnAuthStateChanged as onAuthStateChanged,
+    firebaseSignOut as signOut,
+  };

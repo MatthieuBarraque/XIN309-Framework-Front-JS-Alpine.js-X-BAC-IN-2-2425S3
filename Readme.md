@@ -1,92 +1,58 @@
-### **`Readme.md`**
+### `README.md`
 
-```markdown
-# Web App - Quiz Application
+# Application Web - Plateforme de Quiz
 
-## Description
-This is a simple web application for a quiz platform built with HTML, CSS, JavaScript, and Parcel. The app includes navigation, a leaderboard, and interactive pages for quizzes and about information.
+## Instructions d'Installation
 
----
+### Prérequis
 
-## Features
-- **Navbar** with routes to key pages (Home, Quiz, Leaderboard, About)
-- **Footer** with social media icons and links
-- Fully responsive design
-- Modular structure with reusable components
-- Router for handling navigation
+1. **Node.js** : Assurez-vous d'avoir installé [Node.js](https://nodejs.org/) sur votre machine. L'installation de Node.js inclut également `npm`, le gestionnaire de paquets Node.js.
 
----
+### Installation des dépendances
 
-## Project Structure
-```plaintext
-.
-├── dist/                # Compiled and bundled files
-├── public/              # HTML entry point
-├── src/                 # Source files
-│   ├── assets/          # Static assets (CSS, JS)
-│   ├── components/      # Components (Navbar, Footer, etc.)
-│   ├── pages/           # Pages (Home, About, Quiz, Leaderboard)
-│   └── routes/          # Router setup
-├── package.json         # Project metadata and dependencies
-├── package-lock.json    # Dependency lock file
-├── .gitignore           # Files and folders to ignore in Git
-└── Readme.md            # Project documentation
-```
+1. **Cloner le dépôt :**
 
----
-
-## Setup Instructions
-
-### Prerequisites
-1. Install [Node.js](https://nodejs.org/) and npm (comes with Node.js).
-2. Install Parcel bundler globally:
    ```bash
-   npm install -g parcel-bundler
+   git clone <url-du-dépôt>
+   cd <nom-du-dossier-du-projet>
    ```
 
-### Installation
-1. Clone the repository:
-   ```bash
-   git clone <repository-url>
-   cd <repository-folder>
-   ```
-2. Install dependencies:
+2. **Installer les dépendances :**
+
    ```bash
    npm install
    ```
 
-### Development
-1. Start the development server:
+   Cette commande installera toutes les dépendances nécessaires répertoriées dans le fichier `package.json`.
+
+## Déploiement avec Parcel
+
+1. **Installer Parcel globalement (si ce n'est pas déjà fait) :**
+
    ```bash
-   npm run dev
+   npm install -g parcel
    ```
-   The app will run on `http://localhost:1234`.
 
-2. Any changes made will automatically refresh in the browser.
+2. **Démarrer le serveur de développement :**
 
-### Build
-1. Create a production build:
+   ```bash
+   npm start
+   ```
+
+   Cette commande lancera le serveur de développement. Par défaut, l'application sera accessible à l'adresse `http://localhost:1234`.
+
+3. **Créer une version de production :**
+
+   Pour créer une version optimisée pour la production, exécutez :
+
    ```bash
    npm run build
    ```
-   This will output the bundled files to the `dist` directory.
+
+   Les fichiers optimisés seront générés dans le dossier `dist`.
 
 ---
 
-## How to Use
-1. Navigate to `http://localhost:1234` to see the app running.
-2. Use the navbar to visit the Home, Quiz, Leaderboard, or About pages.
-3. Click on the links in the footer for redirections.
+**Remarque :** Veuillez remplacer `<url-du-dépôt>` et `<nom-du-dossier-du-projet>` par les valeurs appropriées pour votre projet.
 
----
-
-## Contributing
-Feel free to fork this repository and create a pull request with your changes.
-
----
-
-## License
-This project is licensed under the MIT License.
 ```
-
-Let me know if you need further clarifications or updates!
