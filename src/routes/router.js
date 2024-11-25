@@ -1,3 +1,5 @@
+// router.js
+
 import Home from '../pages/Home.js';
 import About from '../pages/About.js';
 import Quiz from '../pages/Quiz.js';
@@ -8,6 +10,7 @@ import Register, { setupRegisterEvents } from '../pages/PageAuth/Register.js';
 import Profile, { setupProfileEvents } from '../pages/Profile/Profile.js';
 import { onAuthStateChanged } from '../services/firebase/auth';
 import { auth } from '../services/firebase/firebaseConfig';
+import { setupNavbarEvents } from '../components/Navbar/Navbar.js'; // Assurez-vous d'importer setupNavbarEvents
 
 export function setupRouter() {
   const routes = {
@@ -36,8 +39,10 @@ export function setupRouter() {
 
     root.innerHTML = typeof page === 'function' ? page() : page;
 
+    setupNavbarEvents();
+
     if (path === '/register') {
-      setupRegisterEvents(); // Attache les événements pour la page Register
+      setupRegisterEvents();
     }
     if (path === '/profile') {
       setupProfileEvents();

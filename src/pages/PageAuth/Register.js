@@ -20,7 +20,6 @@ export default function Register() {
   `;
 }
 
-// Exportez correctement les événements pour `Register`
 export function setupRegisterEvents() {
   setupRegisterFormEvents();
 }

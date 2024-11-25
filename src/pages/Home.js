@@ -13,7 +13,6 @@ export default function Home() {
     ${Footer()}
   `;
 
-  // Une fois que le DOM est chargé, on initialise le carousel
   setTimeout(() => {
     createCarousel('carousel');
   }, 0);

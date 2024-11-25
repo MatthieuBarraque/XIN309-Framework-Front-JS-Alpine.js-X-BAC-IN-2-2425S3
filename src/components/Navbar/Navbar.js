@@ -1,6 +1,10 @@
+// Navbar.js
+
 import "./navbar.css";
 import { onAuthStateChanged, signOut } from "../../services/firebase/auth";
 import { auth } from "../../services/firebase/firebaseConfig";
+
+let authStateListenerAttached = false;
 
 export default function Navbar() {
   return `
@@ -20,7 +24,7 @@ export default function Navbar() {
             <i class="fas fa-plus-circle"></i> Créez
           </a>
           <a href="/trips" class="navbar-link" data-link>
-            <i class="fas fa-heart"></i> Favories
+            <i class="fas fa-heart"></i> Favoris
           </a>
           <a href="/alerts" class="navbar-link" data-link>
             <i class="fas fa-bell"></i> Notifications
@@ -34,47 +38,50 @@ export default function Navbar() {
 }
 
 export function setupNavbarEvents() {
-  document.addEventListener("DOMContentLoaded", () => {
-    const authSignIn = document.getElementById("auth-btn-signin");
-    const authRegister = document.getElementById("auth-btn-register");
+  const authSignIn = document.getElementById("auth-btn-signin");
+  const authRegister = document.getElementById("auth-btn-register");
 
-    let logoutListenerAttached = false;
-
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        if (authSignIn) {
-          authSignIn.textContent = "Profil";
-          authSignIn.setAttribute("href", "/profile");
-        }
-        if (authRegister) {
-          authRegister.textContent = "Déconnexion";
-          authRegister.setAttribute("href", "#");
-
-          if (!logoutListenerAttached) {
-            authRegister.addEventListener("click", async (e) => {
-              e.preventDefault();
-              try {
-                await signOut(auth);
-                alert("Déconnexion réussie.");
-                window.location.href = "/";
-              } catch (error) {
-                console.error("Erreur lors de la déconnexion :", error.message);
-                alert("Erreur lors de la déconnexion. Veuillez réessayer.");
-              }
-            });
-            logoutListenerAttached = true;
-          }
-        }
-      } else {
-        if (authSignIn) {
-          authSignIn.textContent = "Connexion";
-          authSignIn.setAttribute("href", "/signin");
-        }
-        if (authRegister) {
-          authRegister.textContent = "Inscription";
-          authRegister.setAttribute("href", "/register");
-        }
+  function updateNavbar(user) {
+    if (user) {
+      if (authSignIn) {
+        authSignIn.textContent = "Profil";
+        authSignIn.setAttribute("href", "/profile");
       }
+      if (authRegister) {
+        authRegister.textContent = "Déconnexion";
+        authRegister.setAttribute("href", "#");
+
+        authRegister.addEventListener("click", async (e) => {
+          e.preventDefault();
+          try {
+            await signOut(auth);
+            alert("Déconnexion réussie.");
+            window.location.href = "/";
+          } catch (error) {
+            console.error("Erreur lors de la déconnexion :", error.message);
+            alert("Erreur lors de la déconnexion. Veuillez réessayer.");
+          }
+        });
+      }
+    } else {
+      if (authSignIn) {
+        authSignIn.textContent = "Connexion";
+        authSignIn.setAttribute("href", "/signin");
+      }
+      if (authRegister) {
+        authRegister.textContent = "Inscription";
+        authRegister.setAttribute("href", "/register");
+      }
+    }
+  }
+
+  if (!authStateListenerAttached) {
+    onAuthStateChanged(auth, (user) => {
+      updateNavbar(user);
     });
-  });
+    authStateListenerAttached = true;
+  }
+
+  // Mettre à jour le Navbar avec l'état actuel de l'utilisateur
+  updateNavbar(auth.currentUser);
 }

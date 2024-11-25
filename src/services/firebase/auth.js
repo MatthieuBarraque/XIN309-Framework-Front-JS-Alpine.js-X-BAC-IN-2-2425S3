@@ -8,7 +8,6 @@ import {
   import { auth } from './firebaseConfig';
   
   /**
-   * Registers a user with Firebase and sends an email verification.
    * @param {string} email - The user's email address.
    * @param {string} password - The user's password.
    */
@@ -28,32 +27,27 @@ import {
     }
   };
   
-  /**
-   * Continuously checks if the user's email is verified and redirects to the profile page if true.
-   */
   export const waitForEmailVerification = () => {
     const checkInterval = setInterval(async () => {
       const user = auth.currentUser;
   
       if (user) {
-        await user.reload(); // Refresh user data
+        await user.reload();
         if (user.emailVerified) {
-          clearInterval(checkInterval); // Stop checking once verified
+          clearInterval(checkInterval);
           console.log('Email verified. Redirecting to profile...');
           window.location.href = '/profile'; // Redirect to profile page
         }
       }
-    }, 2000); // Check every 2 seconds
+    }, 2000);
   };
   
   /**
-   * Connects a user using Firebase Authentication.
    * @param {string} email - User's email address.
    * @param {string} password - User's password.
    */
   export const loginUser = async (email, password) => {
     try {
-      // Firebase Authentication
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
   
@@ -71,8 +65,6 @@ import {
   };
   
   /**
-   * Protects a route by checking if the user is logged in.
-   * Redirects to the sign-in page if no user is logged in.
    * @param {Function} navigate - Function to navigate to the sign-in page.
    */
   export const protectRoute = (navigate) => {
@@ -83,14 +75,11 @@ import {
     });
   };
   
-  /**
-   * Logs out the user.
-   */
   export const logoutUser = async () => {
     try {
       await firebaseSignOut(auth);
       console.log('Déconnexion réussie.');
-      window.location.href = '/signin'; // Redirect to the sign-in page
+      window.location.href = '/';
     } catch (error) {
       console.error('Erreur lors de la déconnexion :', error.message);
       throw error;
@@ -98,7 +87,6 @@ import {
   };
   
   /**
-   * Monitors the authentication state.
    * @param {Function} onAuthenticated - Callback when the user is authenticated.
    * @param {Function} onUnauthenticated - Callback when the user is not authenticated.
    */

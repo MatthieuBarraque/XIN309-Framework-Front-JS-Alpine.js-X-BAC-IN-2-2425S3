@@ -20,7 +20,6 @@ export default function Signin() {
   `;
 }
 
-// Assurez-vous d'exporter correctement cette fonction
 export function setupSigninFormEvents() {
-  setupFormEvents(); // Utilise la fonction déjà définie dans `SigninForm.js`
+  setupFormEvents();
 }
