@@ -2,7 +2,7 @@ import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
 import { getAuth } from 'firebase/auth';
 
-// check pour env
+// check env
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }

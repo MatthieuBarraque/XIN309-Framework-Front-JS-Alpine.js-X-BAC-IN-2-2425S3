@@ -1,13 +1,18 @@
 import Navbar from '../components/Navbar/Navbar.js';
 import Footer from '../components/Footer/Footer.js';
+import Leaderboard from '../components/Leaderboard/Leaderboard.js';
+import leaderboardData from '../components/Leaderboard/leaderboardData.js';
 
-export default function Leaderboard() {
+export default function LeaderboardPage() {
   return `
     ${Navbar()}
-    <main>
-      <h1>Welcome to the Leaderboard Page</h1>
-      <p>This is the main content of the Leaderboard.</p>
-    </main>
+    <div class="leaderboard-page">
+      ${Leaderboard()}
+    </div>
     ${Footer()}
   `;
+}
+
+export function setupLeaderboardPage() {
+  window.leaderboardData = leaderboardData;
 }

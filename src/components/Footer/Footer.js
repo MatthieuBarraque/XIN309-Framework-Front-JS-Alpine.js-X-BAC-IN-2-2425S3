@@ -7,19 +7,19 @@ export default function Footer() {
         <a href="https://www.facebook.com" target="_blank" class="footer-link" aria-label="Facebook">
           <i class="fab fa-facebook-f"></i>
         </a>
-        <a href="https://www.twitter.com" target="_blank" class="footer-link" aria-label="Twitter">
+        <a href="https://www.twitter.com/elonmusk" target="_blank" class="footer-link" aria-label="Twitter">
           <i class="fab fa-twitter"></i>
         </a>
         <a href="https://www.google.com" target="_blank" class="footer-link" aria-label="Google">
           <i class="fab fa-google"></i>
         </a>
-        <a href="https://www.instagram.com" target="_blank" class="footer-link" aria-label="Instagram">
+        <a href="https://www.instagram.com/zuck" target="_blank" class="footer-link" aria-label="Instagram">
           <i class="fab fa-instagram"></i>
         </a>
-        <a href="https://www.linkedin.com" target="_blank" class="footer-link" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/matthieu-barraque/" target="_blank" class="footer-link" aria-label="LinkedIn">
           <i class="fab fa-linkedin-in"></i>
         </a>
-        <a href="https://www.github.com" target="_blank" class="footer-link" aria-label="GitHub">
+        <a href="https://github.com/MatthieuBarraque/ALPINEJS-Kahootlike/tree/main" target="_blank" class="footer-link" aria-label="GitHub">
           <i class="fab fa-github"></i>
         </a>
       </div>
