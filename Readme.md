@@ -13,8 +13,8 @@
 1. **Cloner le dépôt :**
 
    ```bash
-   git clone <url-du-dépôt>
-   cd <nom-du-dossier-du-projet>
+   git clone XIN309-Framework-Front-JS-Alpine.js-X-BAC-IN-2-2425S3
+   cd XIN309-Framework-Front-JS-Alpine.js-X-BAC-IN-2-2425S3
    ```
 
 2. **Installer les dépendances :**
